@@ -1,0 +1,36 @@
+package com.phegon.FoodApp.auth_users.dtos;
+
+import java.util.List;
+
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.phegon.FoodApp.role.dtos.RoleDTO;
+
+import lombok.Data;
+
+@Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+
+public class UserDTO {
+
+    private Long id;
+    private String name;
+    private String phoneNumber;
+
+    private String profileUrl;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String password;
+
+    private boolean isActive;
+
+    private String address;
+    private List<RoleDTO>roles;
+    private MultipartFile imagFile;
+
+}
